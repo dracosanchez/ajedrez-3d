@@ -1,0 +1,19 @@
+{
+  "name": "Ajedrez 3D",
+  "short_name": "Ajedrez",
+  "description": "Ajedrez 3D y 2D con reglas oficiales, 6 niveles de IA (hasta Stockfish 16), relojes y modo 2 jugadores.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#111317",
+  "theme_color": "#111317",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

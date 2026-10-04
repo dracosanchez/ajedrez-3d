@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111317">
+  <meta name="description" content="Ajedrez 3D y 2D con reglas oficiales, 6 niveles de IA (hasta Stockfish 16), relojes y modo 2 jugadores.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ajedrez">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>Ajedrez 3D</title>
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/three.module.js",
+        "three/addons/": "./vendor/three/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <main id="stage">
+      <div id="scene"></div>
+      <div id="scene2d" hidden></div>
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Preparando el tablero…</p>
+      </div>
+      <div class="stage-tools">
+        <button id="btn-view" class="icon-btn" title="Cambiar a vista 2D (V)" aria-label="Cambiar entre vista 2D y 3D">2D</button>
+        <button id="btn-flip" class="icon-btn" title="Girar el tablero (F)" aria-label="Girar el tablero">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12a8 8 0 0 1 13.7-5.7L20 8.6M20 4v4.6h-4.6M20 12a8 8 0 0 1-13.7 5.7L4 15.4M4 20v-4.6h4.6"/></svg>
+        </button>
+        <button id="btn-sound" class="icon-btn" title="Sonido (S)" aria-label="Activar o desactivar sonido">
+          <svg viewBox="0 0 24 24" width="20" height="20" class="snd-on"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5 6 9H3v6h3l5 4V5zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          <svg viewBox="0 0 24 24" width="20" height="20" class="snd-off"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5 6 9H3v6h3l5 4V5zM22 9l-6 6M16 9l6 6"/></svg>
+        </button>
+      </div>
+      <div class="hint" id="hint">Haz clic en una pieza (o arrástrala) para moverla · Arrastra el fondo para girar la cámara · Rueda para zoom</div>
+    </main>
+
+    <aside id="panel">
+      <header class="brand">
+        <span class="logo">♞</span>
+        <div>
+          <h1>Ajedrez 3D</h1>
+          <p id="subtitle">—</p>
+        </div>
+      </header>
+
+      <section class="player" id="player-top">
+        <div class="player-info">
+          <span class="dot"></span>
+          <div class="player-text">
+            <div class="name"></div>
+            <div class="captured"></div>
+          </div>
+        </div>
+        <div class="clock"></div>
+      </section>
+
+      <div id="status" class="status">—</div>
+
+      <section class="moves-wrap">
+        <ol id="moves" class="moves"></ol>
+        <p class="moves-empty" id="moves-empty">Las jugadas aparecerán aquí.</p>
+      </section>
+
+      <section class="player" id="player-bottom">
+        <div class="player-info">
+          <span class="dot"></span>
+          <div class="player-text">
+            <div class="name"></div>
+            <div class="captured"></div>
+          </div>
+        </div>
+        <div class="clock"></div>
+      </section>
+
+      <div class="actions">
+        <button id="btn-new" class="btn primary">Nueva partida</button>
+        <button id="btn-undo" class="btn">Deshacer</button>
+        <button id="btn-draw" class="btn">Ofrecer tablas</button>
+        <button id="btn-resign" class="btn danger">Rendirse</button>
+        <button id="btn-pgn" class="btn ghost">Copiar PGN</button>
+        <button id="btn-install" class="btn ghost">📲 Instalar app</button>
+      </div>
+      <footer id="engine-info" class="engine-info">Cargando motor…</footer>
+    </aside>
+  </div>
+
+  <!-- Nueva partida -->
+  <div class="modal" id="modal-new" hidden>
+    <div class="dialog wide" role="dialog" aria-modal="true" aria-labelledby="new-title">
+      <h2 id="new-title">Nueva partida</h2>
+
+      <div class="field">
+        <label>Modo de juego</label>
+        <div class="seg" data-name="mode">
+          <button data-value="ai">Contra la IA</button>
+          <button data-value="pvp">2 jugadores</button>
+        </div>
+      </div>
+
+      <div class="field ai-only">
+        <label>Dificultad</label>
+        <div class="levels" id="levels"></div>
+      </div>
+
+      <div class="field ai-only">
+        <label>Juegas con</label>
+        <div class="seg" data-name="color">
+          <button data-value="w"><span class="pc w">♚</span> Blancas</button>
+          <button data-value="r">Al azar</button>
+          <button data-value="b"><span class="pc b">♚</span> Negras</button>
+        </div>
+      </div>
+
+      <div class="field pvp-only">
+        <label class="check"><input type="checkbox" id="opt-rotate"> Girar el tablero automáticamente en cada turno</label>
+      </div>
+
+      <div class="field">
+        <label>Control de tiempo</label>
+        <div class="chips" id="clocks"></div>
+        <div class="custom-clock" id="custom-clock" hidden>
+          <label>Minutos por jugador <input type="number" id="cc-min" min="0.5" max="300" step="0.5"></label>
+          <label>Incremento (segundos) <input type="number" id="cc-inc" min="0" max="180" step="1"></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Vista</label>
+        <div class="seg" data-name="view">
+          <button data-value="3d">Tablero 3D</button>
+          <button data-value="2d">Tablero 2D</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Estilo del tablero</label>
+        <div class="seg" data-name="theme">
+          <button data-value="marble">Mármol blanco y negro</button>
+          <button data-value="wood">Madera clásica</button>
+        </div>
+      </div>
+
+      <div class="dialog-actions">
+        <button class="btn ghost" id="new-cancel">Cancelar</button>
+        <button class="btn primary big" id="new-start">Comenzar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Promoción -->
+  <div class="modal" id="modal-promo" hidden>
+    <div class="dialog small" role="dialog" aria-modal="true">
+      <h2>Promoción del peón</h2>
+      <p class="muted">Elige la pieza:</p>
+      <div class="promo-choices" id="promo-choices">
+        <button data-p="q" title="Dama">♛<span>Dama</span></button>
+        <button data-p="r" title="Torre">♜<span>Torre</span></button>
+        <button data-p="b" title="Alfil">♝<span>Alfil</span></button>
+        <button data-p="n" title="Caballo">♞<span>Caballo</span></button>
+      </div>
+      <div class="dialog-actions"><button class="btn ghost" id="promo-cancel">Cancelar</button></div>
+    </div>
+  </div>
+
+  <!-- Fin de partida -->
+  <div class="modal" id="modal-over" hidden>
+    <div class="dialog small center" role="dialog" aria-modal="true">
+      <div class="over-icon" id="over-icon">♔</div>
+      <h2 id="over-title">—</h2>
+      <p id="over-reason" class="muted">—</p>
+      <p id="over-score" class="over-score">—</p>
+      <div class="dialog-actions">
+        <button class="btn ghost" id="over-close">Ver tablero</button>
+        <button class="btn primary" id="over-new">Nueva partida</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmación genérica -->
+  <div class="modal" id="modal-confirm" hidden>
+    <div class="dialog small center" role="dialog" aria-modal="true">
+      <h2 id="confirm-title">—</h2>
+      <p id="confirm-text" class="muted">—</p>
+      <div class="dialog-actions">
+        <button class="btn ghost" id="confirm-no">No</button>
+        <button class="btn primary" id="confirm-yes">Sí</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instalar -->
+  <div class="modal" id="modal-install" hidden>
+    <div class="dialog small" role="dialog" aria-modal="true" aria-labelledby="install-title">
+      <h2 id="install-title">Instalar Ajedrez 3D</h2>
+      <div class="install-box">
+        <button class="btn primary big" id="install-pc" hidden>Instalar en este equipo</button>
+        <p class="muted" style="margin:0">Escanea el código con la cámara del celular:</p>
+        <div class="qr" id="qr"></div>
+        <div class="qr-url" id="qr-url"></div>
+        <ol class="steps">
+          <li><b>Android (Chrome):</b> abre el enlace y toca <b>Instalar</b> o menú ⋮ → <b>Agregar a la pantalla principal</b>.</li>
+          <li><b>iPhone (Safari):</b> abre el enlace, toca <b>Compartir</b> → <b>Agregar a inicio</b>.</li>
+          <li><b>PC (Chrome o Edge):</b> abre el enlace y pulsa el icono <b>Instalar</b> de la barra de direcciones.</li>
+        </ol>
+        <p class="muted" style="margin:0;font-size:12px">Una vez instalado funciona sin conexión.</p>
+      </div>
+      <div class="dialog-actions"><button class="btn ghost" id="install-close">Cerrar</button></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/chess.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

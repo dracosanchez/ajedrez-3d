@@ -1,0 +1,21 @@
+{
+  "name": "ajedrez-3d",
+  "version": "1.0.0",
+  "description": "Ajedrez 3D con reglas oficiales FIDE, 6 niveles de IA (Stockfish 16), relojes y modo 2 jugadores",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js --open",
+    "serve": "node server.js",
+    "test": "node test/perft.js && node test/engine.js",
+    "vendor": "node scripts/vendor.js",
+    "postinstall": "node scripts/vendor.js"
+  },
+  "license": "GPL-3.0",
+  "type": "commonjs",
+  "dependencies": {
+    "qrcode-generator": "1.4.4",
+    "stockfish": "16.0.0",
+    "three": "0.160.0"
+  },
+  "private": true
+}
