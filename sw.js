@@ -1,5 +1,5 @@
 // Service worker: guarda el juego en caché para que funcione sin conexión una vez instalado.
-const VERSION = 'ajedrez-v2';
+const VERSION = 'ajedrez-v3';
 const ASSETS = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css',
   'js/main.js', 'js/chess.js', 'js/ai.js', 'js/engine-worker.js', 'js/board2d.js', 'js/board3d.js',

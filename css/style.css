@@ -260,7 +260,10 @@ button { font: inherit; color: inherit; }
   .seg button { flex: 1 1 auto; }
 }
 @media (max-width: 420px) {
-  .levels { grid-template-columns: 1fr; }
+  .levels { gap: 6px; }
+  .level { padding: 9px 10px; }
+  .level .lv-top { flex-direction: column; gap: 1px; }
+  .level .lv-desc { font-size: 11px; }
 }
 
 /* ---------- Tablero 2D ---------- */
