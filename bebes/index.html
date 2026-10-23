@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nido de Algodón · Accesorios artesanales para bebés</title>
+  <meta name="description" content="Accesorios artesanales para bebés y recién nacidos: mantas, gorritos, escarpines, apegos y sets de regalo hechos a mano con amor.">
+  <meta name="theme-color" content="#FBF6F0">
+  <meta property="og:title" content="Nido de Algodón · Hecho a mano para los más pequeños">
+  <meta property="og:description" content="Mantas, gorritos, escarpines, apegos y sets de regalo tejidos y cosidos a mano.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <div class="cargador" aria-hidden="true">
+    <svg viewBox="0 0 120 120" class="cargador__ovillo">
+      <circle cx="60" cy="60" r="34" class="cargador__bola"/>
+      <path d="M32 46 Q60 30 88 46 M28 62 Q60 44 92 62 M34 80 Q60 62 86 80" class="cargador__hebras"/>
+    </svg>
+  </div>
+
+  <!-- ───────────── Encabezado ───────────── -->
+  <header class="cabecera" id="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a href="#inicio" class="logo" aria-label="Inicio">
+        <svg viewBox="0 0 48 48" class="logo__icono" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" class="logo__fondo"/>
+          <path d="M14 30 a6 6 0 0 1 4 -10 a8 8 0 0 1 14 -2 a6 6 0 0 1 2 12Z" class="logo__nube"/>
+          <path d="M31 11 a6 6 0 1 0 6 8 a5 5 0 1 1 -6 -8Z" class="logo__luna"/>
+        </svg>
+        <span class="logo__texto" data-marca="nombre">Nido de Algodón</span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Principal">
+        <a href="#coleccion">Colección</a>
+        <a href="#proceso">Cómo trabajamos</a>
+        <a href="#historia">Nuestra historia</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="#contacto" class="boton boton--pequeno menu__cta">Hacer un pedido</a>
+      </nav>
+
+      <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ───────────── Portada ───────────── -->
+    <section class="portada" id="inicio">
+      <div class="portada__decoracion" aria-hidden="true">
+        <svg class="flota flota--nube1" data-profundidad="18" viewBox="0 0 120 60"><path d="M20 50 a16 16 0 0 1 6 -30 a22 22 0 0 1 40 -6 a18 18 0 0 1 32 14 a14 14 0 0 1 2 22Z"/></svg>
+        <svg class="flota flota--nube2" data-profundidad="10" viewBox="0 0 120 60"><path d="M20 50 a16 16 0 0 1 6 -30 a22 22 0 0 1 40 -6 a18 18 0 0 1 32 14 a14 14 0 0 1 2 22Z"/></svg>
+        <svg class="flota flota--estrella1" data-profundidad="30" viewBox="0 0 40 40"><path d="M20 2 L24 15 L38 16 L27 24 L31 38 L20 30 L9 38 L13 24 L2 16 L16 15Z"/></svg>
+        <svg class="flota flota--estrella2" data-profundidad="24" viewBox="0 0 40 40"><path d="M20 2 L24 15 L38 16 L27 24 L31 38 L20 30 L9 38 L13 24 L2 16 L16 15Z"/></svg>
+        <svg class="flota flota--estrella3" data-profundidad="14" viewBox="0 0 40 40"><path d="M20 2 L24 15 L38 16 L27 24 L31 38 L20 30 L9 38 L13 24 L2 16 L16 15Z"/></svg>
+        <span class="flota flota--punto1" data-profundidad="40"></span>
+        <span class="flota flota--punto2" data-profundidad="22"></span>
+      </div>
+
+      <div class="contenedor portada__rejilla">
+        <div class="portada__texto">
+          <p class="antetitulo aparece">Hecho a mano, punto por punto</p>
+          <h1 class="titulo-portada" data-palabras>Pequeños tesoros para sus <em>primeros abrazos</em></h1>
+          <p class="portada__bajada aparece" style="--retraso:.5s">
+            Mantas, gorritos, escarpines y apegos tejidos y cosidos a mano con materiales nobles,
+            pensados para la piel más delicada del mundo.
+          </p>
+          <div class="portada__botones aparece" style="--retraso:.65s">
+            <a href="#coleccion" class="boton">Ver la colección</a>
+            <a href="#" class="boton boton--borde" data-whatsapp="Hola! Quiero hacer un pedido 🧸">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.2Z"/></svg>
+              Escribinos
+            </a>
+          </div>
+          <ul class="sellos aparece" style="--retraso:.8s">
+            <li><span class="sellos__icono">🧶</span> 100% artesanal</li>
+            <li><span class="sellos__icono">🌿</span> Fibras naturales</li>
+            <li><span class="sellos__icono">🎁</span> Envuelto para regalo</li>
+          </ul>
+        </div>
+
+        <div class="portada__vitrina aparece" style="--retraso:.3s">
+          <div class="mancha" aria-hidden="true"></div>
+          <svg class="hilo-portada" viewBox="0 0 400 400" aria-hidden="true">
+            <path d="M30 330 C 80 250, 160 380, 210 300 S 330 180, 370 90" />
+          </svg>
+          <div class="vitrina__principal" data-ilustracion="manta" data-color="celeste"></div>
+          <div class="tarjeta-flotante tarjeta-flotante--a" data-profundidad="-14">
+            <div data-ilustracion="apego" data-color="rosa"></div>
+            <div><strong>Apego Conejita</strong><span>El favorito de la siesta</span></div>
+          </div>
+          <div class="tarjeta-flotante tarjeta-flotante--b" data-profundidad="-22">
+            <div data-ilustracion="escarpines" data-color="salvia"></div>
+            <div><strong>Escarpines</strong><span>Lana suave antialérgica</span></div>
+          </div>
+          <div class="insignia-giro" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="circulo-texto" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+              <text><textPath href="#circulo-texto">HECHO A MANO · CON AMOR · HECHO A MANO · CON AMOR ·</textPath></text>
+            </svg>
+            <span>♡</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#coleccion" class="indicador-scroll" aria-label="Bajar a la colección"><span></span></a>
+    </section>
+
+    <!-- ───────────── Cinta ───────────── -->
+    <div class="cinta" aria-hidden="true">
+      <div class="cinta__pista">
+        <span>Hecho a mano</span><i>✿</i><span>Algodón natural</span><i>✿</i><span>Piezas únicas</span><i>✿</i>
+        <span>Personalizable</span><i>✿</i><span>Regalos con alma</span><i>✿</i><span>Envíos a todo el país</span><i>✿</i>
+        <span>Hecho a mano</span><i>✿</i><span>Algodón natural</span><i>✿</i><span>Piezas únicas</span><i>✿</i>
+        <span>Personalizable</span><i>✿</i><span>Regalos con alma</span><i>✿</i><span>Envíos a todo el país</span><i>✿</i>
+      </div>
+    </div>
+
+    <!-- ───────────── Colección ───────────── -->
+    <section class="seccion" id="coleccion">
+      <div class="contenedor">
+        <header class="encabezado-seccion revela">
+          <p class="antetitulo">Nuestra colección</p>
+          <h2>Cada pieza, <em>única</em> como tu bebé</h2>
+          <p>Elegí por categoría y tocá cualquier producto para ver sus detalles y consultarnos.</p>
+        </header>
+
+        <div class="filtros revela" role="tablist" aria-label="Filtrar por categoría" id="filtros">
+          <span class="filtros__indicador" id="indicador"></span>
+        </div>
+
+        <div class="catalogo" id="catalogo" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ───────────── Proceso ───────────── -->
+    <section class="seccion seccion--suave" id="proceso">
+      <div class="contenedor">
+        <header class="encabezado-seccion revela">
+          <p class="antetitulo">Cómo trabajamos</p>
+          <h2>Del ovillo a tus <em>brazos</em></h2>
+          <p>Cada encargo se hace a pedido, sin apuros, como se hacen las cosas importantes.</p>
+        </header>
+
+        <div class="pasos">
+          <svg class="pasos__hilo" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+            <path id="hilo-pasos" d="M0 60 C 120 0, 200 120, 330 60 S 540 0, 660 60 S 880 120, 1000 50"/>
+          </svg>
+          <article class="paso revela">
+            <span class="paso__numero">01</span>
+            <div class="paso__icono">💬</div>
+            <h3>Elegís</h3>
+            <p>Nos escribís con el producto que te gusta, el talle y los colores que imaginás.</p>
+          </article>
+          <article class="paso revela" style="--retraso:.12s">
+            <span class="paso__numero">02</span>
+            <div class="paso__icono">✏️</div>
+            <h3>Personalizamos</h3>
+            <p>Te ayudamos a combinar tonos y, si querés, bordamos el nombre o las iniciales.</p>
+          </article>
+          <article class="paso revela" style="--retraso:.24s">
+            <span class="paso__numero">03</span>
+            <div class="paso__icono">🧶</div>
+            <h3>Tejemos a mano</h3>
+            <p>Cada pieza se teje o se cose a mano, revisando cada terminación con cuidado.</p>
+          </article>
+          <article class="paso revela" style="--retraso:.36s">
+            <span class="paso__numero">04</span>
+            <div class="paso__icono">🎀</div>
+            <h3>Llega con amor</h3>
+            <p>Lo envolvemos para regalo con una tarjeta escrita a mano y lo enviamos a tu casa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── Historia ───────────── -->
+    <section class="seccion" id="historia">
+      <div class="contenedor historia">
+        <div class="historia__imagen revela revela--izq">
+          <div class="marco">
+            <div class="marco__foto" data-ilustracion="set" data-color="rosa"></div>
+            <span class="marco__cinta"></span>
+          </div>
+          <div class="nota-mano">
+            <p>“Cada punto lleva un deseo bonito para el bebé que lo va a usar.”</p>
+          </div>
+        </div>
+        <div class="historia__texto revela revela--der">
+          <p class="antetitulo">Nuestra historia</p>
+          <h2>Detrás de cada punto hay <em>una mamá</em></h2>
+          <p>
+            Todo empezó con una manta tejida para el primer nieto de la familia. Después llegaron los pedidos de
+            amigas, de vecinas y de amigas de amigas… y aquel pasatiempo de las tardes se convirtió en
+            <strong>Nido de Algodón</strong>.
+          </p>
+          <p>
+            Hoy seguimos trabajando igual que el primer día: en casa, con paciencia, eligiendo hilos suaves y
+            seguros, y cuidando cada detalle como si fuera para nuestro propio bebé.
+          </p>
+          <dl class="cifras">
+            <div><dt><span data-contador="15">0</span>+</dt><dd>años tejiendo</dd></div>
+            <div><dt><span data-contador="1200">0</span>+</dt><dd>piezas hechas a mano</dd></div>
+            <div><dt><span data-contador="800">0</span>+</dt><dd>familias felices</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── Personalización ───────────── -->
+    <section class="banda revela">
+      <div class="contenedor banda__contenido">
+        <div class="banda__burbujas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div>
+          <p class="antetitulo antetitulo--claro">Hecho a medida</p>
+          <h2>¿Soñás con algo <em>único</em>?</h2>
+          <p>Bordamos nombres, iniciales y fechas de nacimiento. Contanos tu idea y la hacemos realidad.</p>
+        </div>
+        <a href="#" class="boton boton--claro" data-whatsapp="Hola! Me gustaría encargar una pieza personalizada ✨">Pedir una pieza personalizada</a>
+      </div>
+    </section>
+
+    <!-- ───────────── Opiniones ───────────── -->
+    <section class="seccion" id="opiniones">
+      <div class="contenedor">
+        <header class="encabezado-seccion revela">
+          <p class="antetitulo">Opiniones</p>
+          <h2>Familias que nos <em>eligieron</em></h2>
+        </header>
+        <div class="carrusel revela" id="carrusel">
+          <div class="carrusel__pista" id="carrusel-pista"></div>
+          <div class="carrusel__puntos" id="carrusel-puntos" role="tablist" aria-label="Opiniones"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── Preguntas ───────────── -->
+    <section class="seccion seccion--suave" id="preguntas">
+      <div class="contenedor preguntas">
+        <header class="encabezado-seccion encabezado-seccion--izq revela">
+          <p class="antetitulo">Preguntas frecuentes</p>
+          <h2>Todo lo que <em>necesitás</em> saber</h2>
+          <p>¿Te quedó alguna duda? Escribinos y te respondemos con gusto.</p>
+        </header>
+        <div class="acordeon revela">
+          <details>
+            <summary>¿Cuánto tarda un pedido?</summary>
+            <p>Las piezas en stock se envían en 48 h. Los pedidos a medida o personalizados tardan entre 7 y 15 días, según la pieza.</p>
+          </details>
+          <details>
+            <summary>¿Hacen envíos?</summary>
+            <p>Sí, enviamos a todo el país por correo o mensajería. También podés retirar el pedido coordinando con nosotras.</p>
+          </details>
+          <details>
+            <summary>¿Qué materiales usan?</summary>
+            <p>Trabajamos con algodón peinado, algodón orgánico, muselina y lana merino antialérgica. Todo pensado para la piel sensible de los bebés.</p>
+          </details>
+          <details>
+            <summary>¿Cómo se lavan las prendas?</summary>
+            <p>Recomendamos lavar a mano con agua tibia y jabón neutro, y secar a la sombra sobre una superficie plana. Cada pieza incluye su tarjeta de cuidados.</p>
+          </details>
+          <details>
+            <summary>¿Puedo elegir los colores?</summary>
+            <p>¡Claro! Casi todas las piezas se pueden hacer en la paleta que prefieras. Te mostramos las muestras de hilo antes de empezar.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── Contacto ───────────── -->
+    <section class="seccion contacto" id="contacto">
+      <div class="contenedor">
+        <div class="contacto__tarjeta revela">
+          <svg class="contacto__corazon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 56 C 8 40, 4 26, 12 16 C 20 6, 30 12, 32 18 C 34 12, 44 6, 52 16 C 60 26, 56 40, 32 56Z"/></svg>
+          <p class="antetitulo">Hablemos</p>
+          <h2>Hagamos algo hermoso <em>juntas</em></h2>
+          <p>Escribinos para consultar disponibilidad, colores, talles o para armar tu regalo ideal.</p>
+          <div class="contacto__botones">
+            <a href="#" class="boton" data-whatsapp="Hola! Vi la página y quiero hacer una consulta 😊">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.2Z"/></svg>
+              WhatsApp
+            </a>
+            <a href="#" class="boton boton--borde" data-instagram>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4ZM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4ZM12 2c-2.7 0-3 0-4.1.1C4.3 2.3 2.3 4.3 2.1 7.9 2 9 2 9.3 2 12s0 3 .1 4.1c.2 3.6 2.2 5.6 5.8 5.8 1 .1 1.4.1 4.1.1s3 0 4.1-.1c3.6-.2 5.6-2.2 5.8-5.8.1-1 .1-1.4.1-4.1s0-3-.1-4.1c-.2-3.6-2.2-5.6-5.8-5.8C15 2 14.7 2 12 2Zm0 1.8c2.7 0 3 0 4 .1 2.7.1 4 1.4 4.1 4.1.1 1 .1 1.3.1 4s0 3-.1 4c-.1 2.7-1.4 4-4.1 4.1-1 .1-1.3.1-4 .1s-3 0-4-.1c-2.7-.1-4-1.4-4.1-4.1-.1-1-.1-1.3-.1-4s0-3 .1-4C4 5.3 5.3 4 8 3.9c1-.1 1.3-.1 4-.1Z"/></svg>
+              Instagram
+            </a>
+          </div>
+          <ul class="contacto__datos">
+            <li>📍 <span data-marca="ciudad"></span></li>
+            <li>🚚 <span data-marca="envios"></span></li>
+            <li>✉️ <a href="#" data-email></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <svg class="pie__ola" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 40 C 240 90, 480 -10, 720 40 S 1200 90, 1440 30 L1440 80 L0 80Z"/>
+    </svg>
+    <div class="contenedor pie__contenido">
+      <p class="pie__marca" data-marca="nombre">Nido de Algodón</p>
+      <p data-marca="lema"></p>
+      <p class="pie__legal">© <span id="anio"></span> <span data-marca="nombre"></span> · Hecho a mano con ♡</p>
+    </div>
+  </footer>
+
+  <a href="#" class="whatsapp-flotante" data-whatsapp="Hola! Quiero hacer una consulta 😊" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.2Z"/></svg>
+  </a>
+
+  <!-- Ventana de detalle de producto -->
+  <dialog class="modal" id="modal" aria-labelledby="modal-titulo">
+    <button class="modal__cerrar" id="modal-cerrar" aria-label="Cerrar">×</button>
+    <div class="modal__cuerpo">
+      <div class="modal__imagen" id="modal-imagen"></div>
+      <div class="modal__info">
+        <p class="antetitulo" id="modal-categoria"></p>
+        <h3 id="modal-titulo"></h3>
+        <p class="modal__precio" id="modal-precio"></p>
+        <p id="modal-descripcion"></p>
+        <ul class="modal__detalles" id="modal-detalles"></ul>
+        <a href="#" class="boton" id="modal-consultar" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
